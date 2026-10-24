@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Грампластинка — магазин винила в Москве | Оригинальные пластинки с 2012 года</title>
+  <meta name="description" content="Винтажный магазин виниловых пластинок в Москве — оригинальные издания, проверка состояния по шкале Goldmine, доставка по РФ. Более 4 000 пластинок в наличии.">
+  <meta name="theme-color" content="#1a0f0a">
+
+  <!-- Канонический адрес страницы -->
+  <link rel="canonical" href="https://gramplastinka.ru/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- Open Graph (Facebook, ВКонтакте, Telegram, Одноклассники) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Грампластинка">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://gramplastinka.ru/">
+  <meta property="og:title" content="Грампластинка — магазин винила в Москве">
+  <meta property="og:description" content="Оригинальные издания, редкие прессинги и проверенное состояние. Более 4 000 пластинок: джаз, рок, электроника и советский винил. Доставка по РФ.">
+  <meta property="og:image" content="https://gramplastinka.ru/favicon.svg">
+  <!-- TODO: для идеальной карточки в соцсетях загрузите рекламное изображение 1200×630 (JPG/PNG)
+       и замените им og:image и twitter:image ниже. -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Грампластинка — магазин винила в Москве">
+  <meta name="twitter:description" content="Оригинальные издания, редкие прессинги и проверенное состояние. Более 4 000 пластинок в наличии, доставка по РФ.">
+  <meta name="twitter:image" content="https://gramplastinka.ru/favicon.svg">
+
+  <!-- JSON-LD: локальный бизнес (Store) для Google и поисковых систем -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Грампластинка",
+    "description": "Магазин виниловых пластинок: оригинальные издания, редкие прессинги, оценка и профессиональная чистка винила, доставка по России.",
+    "url": "https://gramplastinka.ru/",
+    "image": "https://gramplastinka.ru/favicon.svg",
+    "telephone": "+7 495 123-45-67",
+    "email": "hello@gramplastinka.ru",
+    "priceRange": "₽₽",
+    "currenciesAccepted": "RUB",
+    "foundingDate": "2012",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Виноградная, 12",
+      "addressLocality": "Москва",
+      "addressRegion": "Москва",
+      "addressCountry": "RU"
+    },
+    "openingHours": "Mo-Fr 11:00-21:00, Sa-Su 12:00-22:00",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "11:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "22:00"
+      }
+    ],
+    "sameAs": [
+      "https://t.me/gramplastinka",
+      "https://vk.com/gramplastinka",
+      "https://www.instagram.com/gramplastinka"
+    ]
+  }
+  </script>
+  <style>
+    /* ===== СБРОС И БАЗА ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy: #5a1220;
+      --burgundy-dark: #3d0b16;
+      --brown: #2a1a12;
+      --brown-deep: #1a0f0a;
+      --cream: #f4e9d8;
+      --cream-soft: #e8d9c0;
+      --gold: #d4a340;
+      --gold-light: #e8c274;
+      --gold-dark: #a67c26;
+      --text: #f4e9d8;
+      --text-muted: #c9b89c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+      line-height: 1.65;
+      color: var(--text);
+      background-color: var(--brown-deep);
+      background-image:
+        radial-gradient(ellipse at top, rgba(90, 18, 32, 0.55), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(166, 124, 38, 0.18), transparent 55%);
+      background-attachment: fixed;
+      min-width: 320px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    h1 { font-size: clamp(2rem, 1.3rem + 3.6vw, 3.75rem); }
+    h2 { font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.6rem); }
+    h3 { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); }
+
+    p { color: var(--text-muted); }
+
+    a { color: var(--gold-light); text-decoration: none; transition: color 0.25s ease; }
+    a:hover { color: var(--gold); }
+
+    /* Фокус — заметная золотая обводка */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ===== КОНТЕЙНЕР ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ===== ОБЩИЕ КНОПКИ ===== */
+    .btn {
+      display: inline-block;
+      padding: 0.85em 1.6em;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--brown-deep);
+      box-shadow: 0 6px 20px rgba(212, 163, 64, 0.32);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212, 163, 64, 0.5);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--brown-deep);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--gold-light);
+      border-color: var(--gold-dark);
+    }
+    .btn-ghost:hover {
+      background: rgba(212, 163, 64, 0.12);
+      color: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(26, 15, 10, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 163, 64, 0.25);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+      padding: 0.85rem 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Логотип */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .logo:hover { color: var(--gold-light); }
+
+    .logo-vinyl {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--gold) 0 12%, var(--brown-deep) 13% 22%, #2b2b2b 23% 40%, #1a1a1a 41% 60%, #2b2b2b 61% 80%, var(--brown-deep) 81%);
+      box-shadow: inset 0 0 0 1px rgba(212, 163, 64, 0.4);
+      flex-shrink: 0;
+    }
+
+    /* Навигация — flex-wrap на мобильных, аккуратный ряд на десктопе */
+    .main-nav {
+      order: 3;
+      flex-basis: 100%;
+      width: 100%;
+    }
+    .main-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.1rem;
+      list-style: none;
+      justify-content: center;
+      padding: 0.4rem 0 0.2rem;
+      border-top: 1px solid rgba(212, 163, 64, 0.15);
+    }
+    .main-nav a {
+      display: block;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+    }
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.25s ease;
+    }
+    .main-nav a:hover { color: var(--cream); }
+    .main-nav a:hover::after { width: 100%; }
+
+    .header-cta { margin-left: auto; padding: 0.7em 1.3em; font-size: 0.95rem; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(3rem, 8vw, 6rem) 0;
+    }
+    .hero-inner {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      color: var(--cream);
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--gold-light), var(--gold-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 0.95rem + 0.4vw, 1.2rem);
+      max-width: 52ch;
+      margin-bottom: 1.8rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    /* Визуал — виниловая пластинка на CSS */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .vinyl {
+      width: clamp(220px, 60vw, 380px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background:
+        repeating-radial-gradient(circle at center,
+          #0d0d0d 0 2px,
+          #1c1c1c 2px 4px,
+          #111 4px 6px,
+          #222 6px 8px);
+      box-shadow:
+        0 0 0 4px #0a0a0a,
+        0 0 0 6px rgba(212, 163, 64, 0.35),
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(0, 0, 0, 0.8);
+      animation: spin 22s linear infinite;
+    }
+    .vinyl::before {
+      content: "";
+      position: absolute;
+      inset: 30%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--burgundy), var(--burgundy-dark));
+      box-shadow: inset 0 0 0 2px rgba(212, 163, 64, 0.35);
+    }
+    .vinyl::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 6%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--gold);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px rgba(212, 163, 64, 0.8);
+    }
+    .vinyl-shine {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.09) 40deg,
+        transparent 80deg,
+        transparent 200deg,
+        rgba(255, 255, 255, 0.06) 240deg,
+        transparent 280deg);
+      pointer-events: none;
+      animation: spin 22s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .vinyl, .vinyl-shine { animation: none; }
+    }
+
+    /* ===== СЕКЦИИ ===== */
+    section { padding: clamp(2.8rem, 7vw, 5rem) 0; scroll-margin-top: 80px; }
+
+    .section-head {
+      max-width: 60ch;
+      margin-bottom: 2.5rem;
+    }
+    .section-head h2 { color: var(--cream); margin-bottom: 0.6rem; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    /* ===== О МАГАЗИНЕ ===== */
+    .about-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: linear-gradient(160deg, rgba(90, 18, 32, 0.35), rgba(42, 26, 18, 0.6));
+      border: 1px solid rgba(212, 163, 64, 0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 163, 64, 0.5);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    }
+    .feature-icon {
+      width: 2rem;
+      height: 2rem;
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--gold);
+    }
+    .feature h3 { color: var(--cream); margin-bottom: 0.4rem; }
+    .feature p { font-size: 0.95rem; }
+
+    /* ===== КОЛЛЕКЦИЯ ===== */
+    .collection-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    .genre-card {
+      position: relative;
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem;
+      overflow: hidden;
+      border: 1px solid rgba(212, 163, 64, 0.22);
+      background: linear-gradient(150deg, var(--brown) 0%, var(--burgundy-dark) 100%);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .genre-card::before {
+      content: "";
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 163, 64, 0.35), transparent 70%);
+      transition: transform 0.4s ease;
+    }
+    .genre-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+    .genre-card:hover::before { transform: scale(1.4); }
+    .genre-icon { width: 2.1rem; height: 2.1rem; display: block; margin-bottom: 0.5rem; color: var(--gold); }
+    .genre-card h3 { color: var(--cream); position: relative; }
+    .genre-card p { font-size: 0.9rem; position: relative; margin-top: 0.3rem; }
+
+    /* ===== УСЛУГИ ===== */
+    .services-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .service {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.4rem;
+      border-radius: 14px;
+      background: rgba(42, 26, 18, 0.65);
+      border-left: 4px solid var(--gold);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .service:hover {
+      background: rgba(90, 18, 32, 0.45);
+      transform: translateX(4px);
+    }
+    .service-icon { width: 1.8rem; height: 1.8rem; flex-shrink: 0; color: var(--gold); }
+    .service h3 { color: var(--cream); margin-bottom: 0.3rem; }
+    .service p { font-size: 0.92rem; }
+
+    /* ===== ОТЗЫВЫ ===== */
+    .reviews-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .review {
+      background: linear-gradient(160deg, rgba(244, 233, 216, 0.06), rgba(90, 18, 32, 0.25));
+      border: 1px solid rgba(212, 163, 64, 0.22);
+      border-radius: 16px;
+      padding: 1.6rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .review:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .review-stars { color: var(--gold); letter-spacing: 0.15em; margin-bottom: 0.7rem; }
+    .review-text { color: var(--cream-soft); font-style: italic; margin-bottom: 1rem; }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold), var(--burgundy));
+      color: var(--brown-deep);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .review-name { color: var(--cream); font-weight: 600; }
+    .review-role { color: var(--text-muted); font-size: 0.82rem; }
+
+    /* ===== КОНТАКТЫ ===== */
+    .contact-wrap {
+      display: grid;
+      gap: 2rem;
+    }
+    .contact-info { display: grid; gap: 1.1rem; }
+    .contact-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .contact-item .ci-icon {
+      width: 44px; height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(212, 163, 64, 0.12);
+      border: 1px solid rgba(212, 163, 64, 0.28);
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .ci-icon svg { width: 22px; height: 22px; }
+    .contact-item h3 {
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.15rem;
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+    }
+    .contact-item p, .contact-item a { font-size: 0.95rem; color: var(--text-muted); }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* Форма */
+    .contact-form {
+      background: linear-gradient(160deg, rgba(90, 18, 32, 0.4), rgba(26, 15, 10, 0.7));
+      border: 1px solid rgba(212, 163, 64, 0.25);
+      border-radius: 18px;
+      padding: clamp(1.4rem, 4vw, 2rem);
+    }
+    .contact-form h3 { color: var(--cream); margin-bottom: 1.2rem; }
+    .form-field { margin-bottom: 1rem; }
+    .form-field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream-soft);
+      margin-bottom: 0.4rem;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--cream);
+      background: rgba(26, 15, 10, 0.75);
+      border: 1px solid rgba(212, 163, 64, 0.3);
+      border-radius: 10px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: #8a7a63; }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold);
+      background: rgba(26, 15, 10, 0.95);
+      outline: none;
+    }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+    .contact-form .btn { width: 100%; margin-top: 0.4rem; }
+    .form-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.8rem; text-align: center; }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: rgba(15, 8, 5, 0.9);
+      border-top: 1px solid rgba(212, 163, 64, 0.2);
+      padding: 2.2rem 0 1.6rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      display: grid;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      justify-content: center;
+      list-style: none;
+    }
+    .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-social {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+    .footer-social a {
+      width: 40px; height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(212, 163, 64, 0.1);
+      border: 1px solid rgba(212, 163, 64, 0.3);
+      color: var(--gold);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .footer-social a svg { width: 20px; height: 20px; }
+    .footer-social a:hover { background: rgba(212, 163, 64, 0.25); transform: translateY(-3px); }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #8a7a63;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(212, 163, 64, 0.12);
+    }
+
+    /* ===== АДАПТИВ: ПЛАНШЕТ (≥768px) ===== */
+    @media (min-width: 768px) {
+      .header-inner { flex-wrap: nowrap; padding: 0.9rem 1.5rem; }
+      .main-nav { order: 0; flex-basis: auto; width: auto; margin: 0 auto; }
+      .main-nav ul { border-top: none; padding: 0; }
+      .header-cta { margin-left: 0; }
+
+      .hero-inner { grid-template-columns: 1.15fr 0.85fr; gap: 3rem; }
+
+      .about-grid { grid-template-columns: repeat(3, 1fr); }
+      .collection-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .contact-wrap { grid-template-columns: 1fr 1.1fr; align-items: start; }
+
+      .footer-inner { grid-template-columns: 1fr auto; text-align: left; align-items: center; }
+      .footer-brand { margin-bottom: 0; }
+      .footer-center { text-align: center; }
+      .footer-social { justify-content: flex-end; }
+      .footer-copy { grid-column: 1 / -1; text-align: center; }
+    }
+
+    /* ===== АДАПТИВ: ДЕСКТОП (≥1200px) ===== */
+    @media (min-width: 1200px) {
+      .collection-grid { grid-template-columns: repeat(4, 1fr); }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero-inner { gap: 5rem; }
+    }
+
+    /* Уважение к reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER / НАВИГАЦИЯ ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo" aria-label="Грампластинка — на главную">
+        <span class="logo-vinyl" aria-hidden="true"></span>
+        Грампластинка
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#collection">Коллекция</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contacts" class="btn btn-primary header-cta">Позвонить</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Магазин винила с 2012 года</span>
+          <h1 id="hero-title">Тёплый звук <em>настоящего</em> винила</h1>
+          <p class="hero-sub">
+            Оригинальные издания, редкие прессинги и проверенное состояние.
+            Приходите слушать, выбирать и уходить с пластинкой, которая станет вашей.
+          </p>
+          <div class="hero-actions">
+            <a href="#collection" class="btn btn-primary">Смотреть коллекцию</a>
+            <a href="#contacts" class="btn btn-ghost">Заказать подбор</a>
+          </div>
+        </div>
+
+        <!-- Визуал: пластинка на чистом CSS -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="vinyl">
+            <span class="vinyl-shine"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== О МАГАЗИНЕ ===== -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">О нас</span>
+          <h2 id="about-title">Ламповое место для тех, кто слышит разницу</h2>
+          <p>
+            Мы — небольшой магазин в центре города, где винил не просто товар, а повод
+            задержаться, послушать и поговорить о музыке. Каждую пластинку проверяем
+            вручную и честно описываем состояние.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+            <h3>Оригинальные издания</h3>
+            <p>Первый прессинг, импорт и советский винил — без переизданий «на скорую руку».</p>
+          </article>
+          <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <h3>Проверка состояния</h3>
+            <p>Каждую пластинку прослушиваем и оцениваем по шкале Goldmine перед продажей.</p>
+          </article>
+          <article class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <h3>Доставка по РФ</h3>
+            <p>Бережная упаковка в жёсткий конверт и отправка в любой город России.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== КОЛЛЕКЦИЯ / КАТЕГОРИИ ===== -->
+    <section id="collection" aria-labelledby="collection-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Коллекция</span>
+          <h2 id="collection-title">Подборки на любой вкус</h2>
+          <p>Более 4 000 пластинок в наличии — от классики джаза до советского рока.</p>
+        </div>
+
+        <div class="collection-grid">
+          <article class="genre-card">
+            <svg class="genre-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+            <h3>Jazz</h3>
+            <p>Blue Note, Verve, импортные оригиналы 50–70-х.</p>
+          </article>
+          <article class="genre-card">
+            <svg class="genre-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <h3>Rock</h3>
+            <p>Классика, прогрессив, хард — от Beatles до Led Zeppelin.</p>
+          </article>
+          <article class="genre-card">
+            <svg class="genre-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            <h3>Electronic</h3>
+            <p>House, techno, ambient и экспериментальная электроника.</p>
+          </article>
+          <article class="genre-card">
+            <svg class="genre-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <h3>Soviet Vinyl</h3>
+            <p>«Мелодия», редкие тиражи и культовые советские записи.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== УСЛУГИ ===== -->
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Услуги</span>
+          <h2 id="services-title">Поможем найти и сохранить ваш звук</h2>
+          <p>Не только продаём, но и помогаем коллекционерам и новичкам.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <div>
+              <h3>Оценка пластинок</h3>
+              <p>Оценим вашу коллекцию по рыночной стоимости и состоянию.</p>
+            </div>
+          </article>
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <div>
+              <h3>Поиск редких изданий</h3>
+              <p>Найдём конкретный прессинг или издание под заказ из Европы и США.</p>
+            </div>
+          </article>
+          <article class="service">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            <div>
+              <h3>Чистка винила</h3>
+              <p>Профессиональная ультразвуковая и ручная чистка — звук как новый.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ОТЗЫВЫ ===== -->
+    <section id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Отзывы</span>
+          <h2 id="reviews-title">Что говорят наши гости</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Нашёл здесь первый прессинг Kind of Blue. Состояние — как обещали,
+              звучит волшебно. Отдельное спасибо за чай и разговоры.»
+            </p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">А</span>
+              <div>
+                <div class="review-name">Алексей</div>
+                <div class="review-role">Коллекционер, Москва</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="review">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Впервые покупала винил — помогли выбрать проигрыватель и пластинки
+              под мой вкус. Никакого снобизма, только любовь к музыке.»
+            </p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">М</span>
+              <div>
+                <div class="review-name">Марина</div>
+                <div class="review-role">Новичок в виниле</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="review">
+            <div class="review-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="review-text">
+              «Заказывал советский рок с доставкой в Казань. Упаковано идеально,
+              всё доехало без единой царапины. Буду заказывать ещё.»
+            </p>
+            <div class="review-author">
+              <span class="review-avatar" aria-hidden="true">Д</span>
+              <div>
+                <div class="review-name">Дмитрий</div>
+                <div class="review-role">Постоянный клиент</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ / ФОРМА ===== -->
+    <section id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Контакты</span>
+          <h2 id="contacts-title">Заходите или напишите нам</h2>
+          <p>Подберём пластинки под ваш вкус, ответим на вопросы, оформим доставку.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <!-- Контактная информация -->
+          <address class="contact-info" style="font-style: normal;">
+            <div class="contact-item">
+              <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+              <div>
+                <h3>Адрес</h3>
+                <p>г. Москва, ул. Виноградная, 12, вход со двора</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+              <div>
+                <h3>Телефон</h3>
+                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              <div>
+                <h3>Часы работы</h3>
+                <p>Пн–Пт: 11:00–21:00<br>Сб–Вс: 12:00–22:00</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+              <div>
+                <h3>Почта</h3>
+                <p><a href="mailto:hello@gramplastinka.ru">hello@gramplastinka.ru</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></span>
+              <div>
+                <h3>Соцсети</h3>
+                <p>
+                  <a href="#" aria-label="Telegram">Telegram</a> ·
+                  <a href="#" aria-label="VK">VK</a> ·
+                  <a href="#" aria-label="Instagram">Instagram</a>
+                </p>
+              </div>
+            </div>
+          </address>
+
+          <!-- Форма обратной связи -->
+          <form class="contact-form" action="#" method="post" aria-labelledby="form-title">
+            <h3 id="form-title">Оставить заявку</h3>
+            <div class="form-field">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="comment">Комментарий</label>
+              <textarea id="comment" name="comment" placeholder="Что ищете? Какой жанр, исполнитель, издание?" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            <p class="form-note">Перезвоним в течение рабочего дня. Без спама.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Грампластинка</div>
+        <p style="font-size: 0.85rem;">Магазин винила для тех, кто слышит.</p>
+      </div>
+
+      <nav class="footer-center" aria-label="Навигация в подвале">
+        <ul class="footer-links">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#collection">Коллекция</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-social" aria-label="Социальные сети">
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <a href="#" aria-label="VK"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+      </div>
+
+      <p class="footer-copy">© 2025 Грампластинка. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

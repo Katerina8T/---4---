@@ -1,0 +1,142 @@
+/* ============================================================
+   base.css — сброс, токены, типографика, утилиты
+   Общий файл для всех лендингов «Грампластинка»
+   ============================================================ */
+
+/* ===== СБРОС ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ===== ТОКЕНЫ (значения по умолчанию, переопределяются темой города) ===== */
+:root {
+  /* Типографика */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  /* Радиусы */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* Палитра по умолчанию (нейтральная, перекрывается theme-*.css) */
+  --bg: #1a0f0a;
+  --surface: #2a1a12;
+  --brand: #5a1220;
+  --brand-dark: #3d0b16;
+  --cream: #f4e9d8;
+  --cream-soft: #e8d9c0;
+  --gold: #d4a340;
+  --gold-light: #e8c274;
+  --gold-dark: #a67c26;
+  --text: #f4e9d8;
+  --text-muted: #c9b89c;
+  --glow-1: rgba(90, 18, 32, 0.55);
+  --glow-2: rgba(166, 124, 38, 0.18);
+}
+
+/* ===== БАЗА ===== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at top, var(--glow-1), transparent 60%),
+    radial-gradient(ellipse at bottom right, var(--glow-2), transparent 55%);
+  background-attachment: fixed;
+  min-width: 320px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 1.3rem + 3.6vw, 3.75rem); }
+h2 { font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.6rem); }
+h3 { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); }
+
+p { color: var(--text-muted); }
+
+a { color: var(--gold-light); text-decoration: none; transition: color 0.25s ease; }
+a:hover { color: var(--gold); }
+
+/* Фокус — заметная золотая обводка */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ===== СЕКЦИИ ===== */
+section { padding: clamp(2.8rem, 7vw, 5rem) 0; scroll-margin-top: 80px; }
+
+.section-head {
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+.section-head h2 { color: var(--cream); margin-bottom: 0.6rem; }
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+/* ===== УТИЛИТЫ ===== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.7rem 1.2rem;
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ===== УВАЖЕНИЕ К REDUCED-MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
