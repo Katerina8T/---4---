@@ -411,6 +411,41 @@
     .feature h3 { color: var(--cream); margin-bottom: 0.4rem; }
     .feature p { font-size: 0.95rem; }
 
+    /* ===== ФОТО В КАРТОЧКАХ «О НАС» (дополнение к .feature) ===== */
+    /* Карточка — колонка: текст сверху, фото прижато к низу на десктопе,
+       чтобы карточки в трёх колонках выглядели одинаково по высоте.
+       Существующие правила .feature и .feature:hover не изменяются. */
+    .feature {
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-media {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 800 / 500;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin-top: 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(212, 163, 64, 0.25);
+    }
+    @media (min-width: 768px) {
+      .feature-media {
+        margin-top: auto;
+      }
+    }
+    /* Новый эффект наведения дополняет transform / border-color / box-shadow
+       из .feature:hover и не конфликтует с ними */
+    @media (prefers-reduced-motion: no-preference) {
+      .feature-media {
+        transition: filter 0.25s ease;
+      }
+      .feature:hover .feature-media {
+        filter: brightness(1.06);
+      }
+    }
+
     /* ===== КОЛЛЕКЦИЯ ===== */
     .collection-grid {
       display: grid;
@@ -735,16 +770,19 @@
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
             <h3>Оригинальные издания</h3>
             <p>Первый прессинг, импорт и советский винил — без переизданий «на скорую руку».</p>
+            <img class="feature-media" src="пластинка 1.jpg" alt="Оригинальный прессинг виниловой пластинки на вертушке" width="800" height="500" loading="lazy" decoding="async">
           </article>
           <article class="feature">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <h3>Проверка состояния</h3>
             <p>Каждую пластинку прослушиваем и оцениваем по шкале Goldmine перед продажей.</p>
+            <img class="feature-media" src="пластинки.jpg" alt="Прослушивание пластинок и оценка состояния по шкале Goldmine" width="800" height="500" loading="lazy" decoding="async">
           </article>
           <article class="feature">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
             <h3>Доставка по РФ</h3>
             <p>Бережная упаковка в жёсткий конверт и отправка в любой город России.</p>
+            <img class="feature-media" src="доставка.jpg" alt="Пластинки в жёстких конвертах, подготовленные к отправке" width="800" height="500" loading="lazy" decoding="async">
           </article>
         </div>
       </div>
