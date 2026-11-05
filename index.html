@@ -700,6 +700,155 @@
       html { scroll-behavior: auto; }
       * { transition: none !important; }
     }
+
+    /* ===== ТОНАРМ / ИГЛА НА ПЛАСТИНКЕ ===== */
+    /* Тонарм собран из 4 span'ов вокруг точки-пивота (.tonearm —
+       нулевая точка-якорь в правом верхнем секторе пластинки).
+       .vinyl целиком вращается (animation: spin), поэтому .tonearm
+       компенсирует это обратным вращением: визуально тонарм стоит
+       на месте, пока пластинка крутится под ним. Все размеры заданы
+       через var(--v) = ширину .vinyl, поэтому тонарм пропорционально
+       масштабируется на любом экране и не влияет на layout (нет CLS). */
+    .tonearm {
+      /* ширина .vinyl — единая база всех размеров тонарма */
+      --v: clamp(220px, 60vw, 380px);
+      /* длина стержня от пивота до головки */
+      --arm: calc(var(--v) * 0.6);
+      position: absolute;
+      top: 5%;
+      left: 70%;
+      width: 0;
+      height: 0;
+      z-index: 3; /* выше .vinyl-shine */
+      pointer-events: none;
+      /* Компенсация вращения .vinyl: тонарм остаётся неподвижным.
+         Вращать нужно вокруг ТОГО ЖЕ центра, что и .vinyl, иначе
+         обратное вращение не погасит вращение родителя. Центр
+         пластинки относительно якоря .tonearm (left 70%, top 5%)
+         находится на (-0.2 * --v, +0.45 * --v). */
+      transform-origin: calc(var(--v) * -0.2) calc(var(--v) * 0.45);
+      animation: spin-reverse 22s linear infinite;
+    }
+    @keyframes spin-reverse { to { transform: rotate(-360deg); } }
+
+    /* База тонарма — тёмный круг с золотой обводкой, центр на пивоте */
+    .tonearm-base {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(var(--v) * 0.06);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: var(--brown-deep);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(212, 163, 64, 0.35);
+    }
+
+    /* Пивот — маленькая золотая ось вращения поверх базы */
+    .tonearm-pivot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(var(--v) * 0.026);
+      min-width: 6px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, var(--gold-light), var(--gold-dark));
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    /* Стержень — тонкая золотая линия от пивота вниз.
+       transform-origin — точка пивота: вращение поднимает/опускает головку.
+       Поднятое положение: rotate(-25deg) — игла у края пластинки, «в воздухе». */
+    .tonearm-stick {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: var(--arm);
+      transform: translateX(-50%) rotate(-25deg);
+      transform-origin: top center;
+      background: linear-gradient(to bottom, var(--gold-light), var(--gold-dark));
+      border-radius: 2px;
+      transition: transform 0.6s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* Головка с иглой — на конце стержня. Вращается вокруг того же
+       пивота (transform-origin вычислен через var(--arm)), поэтому
+       движется жёстко вместе со стержнем. Цвет --gold-light контрастен
+       на тёмном виниле (соотношение заметно выше 3:1). */
+    .tonearm-head {
+      position: absolute;
+      top: calc(var(--arm) - 8px);
+      left: 0;
+      width: calc(var(--v) * 0.032);
+      height: calc(var(--v) * 0.05);
+      transform: translateX(-50%) rotate(-25deg);
+      transform-origin: 50% calc(8px - var(--arm));
+      background: var(--gold-light);
+      border-radius: 4px 4px 6px 6px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+      transition: transform 0.6s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* Hover: стержень опускается до rotate(-15deg) — головка касается
+       бороздок (~35–40% ширины пластинки от центра, вне лейбла и оси).
+       cubic-bezier с перелётом даёт мягкую «пружинку» при опускании;
+       возврат идёт через тот же transition (свойство — только transform). */
+    .vinyl:hover .tonearm-stick {
+      transform: translateX(-50%) rotate(-15deg);
+    }
+    .vinyl:hover .tonearm-head {
+      transform: translateX(-50%) rotate(-15deg);
+      /* «пружинка» иглы после касания: затухающее покачивание ±1.5deg */
+      animation: tonearm-bounce 0.4s ease-out 0.6s;
+    }
+
+    @keyframes tonearm-bounce {
+      0%, 100% { transform: translateX(-50%) rotate(-15deg); }
+      25%      { transform: translateX(-50%) rotate(-16.5deg); }
+      55%      { transform: translateX(-50%) rotate(-13.8deg); }
+      80%      { transform: translateX(-50%) rotate(-15.4deg); }
+    }
+
+    /* Блик-тень от иглы на бороздке: проявляется, когда игла коснулась */
+    .tonearm::after {
+      content: "";
+      position: absolute;
+      left: calc(var(--arm) * 0.28);
+      top: calc(var(--arm) * 1.02);
+      width: calc(var(--v) * 0.11);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(212, 163, 64, 0.85), transparent);
+      border-radius: 1px;
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: opacity 0.6s ease 0.45s;
+    }
+    .vinyl:hover .tonearm::after { opacity: 1; }
+
+    /* Reduced motion: тонарм статично опущен, без transition и animation */
+    @media (prefers-reduced-motion: reduce) {
+      .tonearm { animation: none; }
+      .tonearm-stick,
+      .tonearm-head {
+        transition: none;
+        transform: translateX(-50%) rotate(-15deg);
+      }
+      .tonearm-head { animation: none; }
+      .tonearm::after { opacity: 1; transition: none; }
+    }
+
+    /* < 480px: отдельный scale не нужен — все размеры тонарма заданы
+       через var(--v) (ширину .vinyl), поэтому он пропорционально
+       уменьшается вместе с пластинкой и не перекрывает её.
+       На узких экранах лишь утончаем линии. */
+    @media (max-width: 479px) {
+      .tonearm-base { border-width: 1.5px; }
+      .tonearm-stick { width: 2px; }
+    }
   </style>
 </head>
 <body>
@@ -746,6 +895,12 @@
         <!-- Визуал: пластинка на чистом CSS -->
         <div class="hero-visual" aria-hidden="true">
           <div class="vinyl">
+            <div class="tonearm" aria-hidden="true">
+              <span class="tonearm-base"></span>
+              <span class="tonearm-pivot"></span>
+              <span class="tonearm-stick"></span>
+              <span class="tonearm-head"></span>
+            </div>
             <span class="vinyl-shine"></span>
           </div>
         </div>
